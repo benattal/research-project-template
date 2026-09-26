@@ -1,0 +1,102 @@
+# Static documentation site: hand-written docs/ plus an API reference for src/.
+# Build with scripts/infra/build_docs.sh; output lands in the gitignored
+# docs/pages/documentation/ tree.
+site_name: TODO(template) Project name
+site_description: TODO(template) one-line description.
+docs_dir: docs
+site_dir: docs/pages/documentation
+# No server assumed: the site is opened from disk via file://
+use_directory_urls: false
+
+# Generated pages are output, not input.
+exclude_docs: |
+  pages/
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.highlight
+  # docs/ uses GitHub-style $...$ / $$...$$ math; arithmatex hands it to MathJax
+  - pymdownx.arithmatex:
+      generic: true
+
+# MathJax from a CDN; math renders when the viewer is online.
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+  # one virtual page per src module, generated at build time
+  - gen-files:
+      scripts:
+        - scripts/infra/gen_api_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]
+          options:
+            # static analysis only: importing src may need a GPU
+            allow_inspection: false
+            docstring_style: google
+            show_source: true
+            show_signature_annotations: true
+            members_order: source
+            show_if_no_docstring: true
+            merge_init_into_class: true
+
+# The nav mirrors docs/index.md. Add every new document to both.
+nav:
+  - Home: index.md
+  - Concepts:
+      - Concept Map: concepts/index.md
+      - Example: concepts/example.md
+  - Implementation:
+      - Architecture: implementation/architecture.md
+      - Randomness and Performance: implementation/performance.md
+      - Troubleshooting: implementation/troubleshooting.md
+      - Experiment Workflows: implementation/experiments.md
+      - Results Pages: implementation/results-pages.md
+      - Documentation Build: implementation/documentation.md
+      - Applications:
+          - Example: implementation/apps/example.md
+  - Style:
+      - Code and Organization: style/code.md
+      - Writing and Math: style/writing.md
+      - Results Presentation: style/results.md
+  - Environments: environments/index.md
+  - Papers:
+      - References: papers/README.md
+      - Research Provenance: papers/provenance.md
+      - Submission Record: papers/submission/README.md
+  - Production Configurations: production-configs.md
+  - Plans: plans/README.md
+  - Tracking:
+      - Tracker Index: tracking/README.md
+      - Tracking Data: tracking/data/README.md
+  - Historical Notes:
+      - Index: historical/README.md
+  - Archive: archive/README.md
+  - API Reference: api/

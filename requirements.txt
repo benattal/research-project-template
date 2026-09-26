@@ -1,0 +1,5 @@
+# TODO(template): add the project's dependencies and pin the versions that
+# define a result (framework, compiler, CUDA build).
+numpy>=1.26
+tyro>=0.8
+pytest>=7

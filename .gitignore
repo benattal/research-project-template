@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+docs_venv/
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Run artifacts. The durable copy lives in object storage (DATA.md).
+/outputs/
+
+# Scheduler and application logs. The tracked README keeps the directory in a
+# fresh checkout so SLURM can open its --output/--error paths.
+/logs/*
+!/logs/README.md
+# sbatch drops slurm-<jobid>.out in the submit directory. Anchored so it
+# cannot swallow a tracked document whose name starts with "slurm-".
+/slurm-*
+
+# Downloaded resources (pretrained weights etc.), pre-fetched so compute nodes
+# need no outbound network access.
+/data/resources/
+
+# Arrays and model weights are outputs, never source. A large binary in
+# history blocks every later push once it exceeds the host's file-size limit.
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.h5
+
+# Large scene or dataset assets. TODO(template): add the project's formats,
+# and list any deliberately tracked exception explicitly with a "!" line.
+*.exr
+*.hdr
+*.ply
+*.vol
+
+# Compilation caches
+.drjit_cache/
+.optix_cache/
+
+# Core dumps (core, core.<pid>, core.<host>.<exe>.<pid>)
+/core
+/core.[0-9]*
+/core.*.[0-9]*
+
+# Local agent state stays out of git; .claude/skills/ is shared tooling.
+.claude/*
+!.claude/skills/
+
+# Object-storage credentials (DATA.md). SECRET: never commit.
+.data-credentials
+
+# Generated documentation and results pages. Builders live under scripts/;
+# page HTML and assets are derived output.
+/docs/pages/
+/site/
+
+# LaTeX intermediates beside maintained documents
+/docs/**/*.aux
+/docs/**/*.log
+/docs/**/*.out

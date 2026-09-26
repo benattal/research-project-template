@@ -1,0 +1,7 @@
+# Tool configuration only. The project runs from the repository root as
+# `python -m src.apps.<application>` and is not installed as a package.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
