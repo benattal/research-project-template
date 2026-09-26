@@ -15,6 +15,9 @@ the agent files) and is enforced there; the note stays as its rationale.
 | [mitsuba/](mitsuba/README.md) | Mitsuba 3 and DrJit: randomness, JIT specialization, precision, memory, interop, testing |
 | [real-time-rendering/](real-time-rendering/README.md) | Interactive native CUDA and WebGPU demos of a neural cache trained online |
 | [clusters/](clusters/README.md) | SLURM jobs, environment staging, job caches, long runs, login nodes, cleanup |
+| [unbiased-estimation/](unbiased-estimation/README.md) | Learning from noisy or corrupted data without bias: independent views, sources of bias, normalization, noise models |
+| [evaluating-generative-models/](evaluating-generative-models/README.md) | Measuring distribution recovery: metric choice, toy problems with known answers, sample-size noise, posterior evaluation |
+| [training-engineering/](training-engineering/README.md) | PyTorch, accelerate, and JAX training: mixed precision, memory, multi-GPU, EMA and checkpoints, throughput |
 
 ## Adding a note
 
@@ -22,6 +25,7 @@ the agent files) and is enforced there; the note stays as its rationale.
   when no existing one fits, and list it above.
 - One file per subject. Each entry states the insight first, then the
   mechanism, how to apply it, and the evidence.
-- Keep it durable and anonymous: no project, dataset, or people names, no
-  hosts, job IDs, paths, or dates. The operational history stays in the
+- Keep it durable and anonymous: no project, internal scene, or people
+  names, no hosts, job IDs, paths, or dates. Public software, hardware,
+  papers, and datasets may be named. The operational history stays in the
   project's own trackers.

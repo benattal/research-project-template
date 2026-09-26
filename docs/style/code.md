@@ -74,7 +74,12 @@ public contract, state owner, or multiple consumers.
   sequence they execute.
 - Use whitespace to expose structure, not to create large mechanical gaps.
 - Comments explain invariants, measures, ownership, or non-obvious device
-  behavior. Remove timeline narration after its durable lesson is documented.
+  behavior. Keep them short and beside the step they explain; say why, not
+  what the code already says. Remove timeline narration after its durable
+  lesson is documented.
+- A docstring opens with a one-line summary, then states only what the
+  signature does not: shapes, units and measures, side effects, randomness,
+  and gotchas. Do not restate each argument's name and type.
 - Name variants precisely. When two architectures differ in one structural
   property, put that property in both names rather than calling one of them
   plain.
@@ -82,7 +87,13 @@ public contract, state owner, or multiple consumers.
 ## Interfaces and configuration
 
 - Internal interfaces fail explicitly when a required value or operation is
-  absent. Do not hide an ownership error behind a passive alias.
+  absent. Do not hide an ownership error behind a passive alias, a
+  `hasattr`/`getattr` probe, or a defensive `is not None` check on required
+  state. A value that is optional is optional in its type and its branches.
+- Core interfaces list their parameters explicitly; they do not accept
+  `**kwargs`.
+- Select among implementations with a table (a dict from name to factory)
+  resolved at construction, not a growing `if`/`elif` chain inside the loop.
 - Use typed, frozen dataclasses for numerical configuration. Use concrete
   component factories or callbacks for implementation choices rather than
   config-driven runtime modes.

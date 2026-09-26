@@ -36,6 +36,16 @@ without importing it.
 [Environments and running the code](environments/index.md) is the
 authoritative setup and launch guide.
 
+## Historical notes
+
+[Historical engineering notes](historical/README.md) collect durable,
+project-independent lessons: [Mitsuba and DrJit](historical/mitsuba/README.md),
+[real-time rendering](historical/real-time-rendering/README.md),
+[clusters and shared hosts](historical/clusters/README.md),
+[unbiased estimation](historical/unbiased-estimation/README.md),
+[evaluating generative models](historical/evaluating-generative-models/README.md),
+and [training engineering](historical/training-engineering/README.md).
+
 ## Papers, plans, and tracking
 
 - [Papers and references](papers/README.md), with the

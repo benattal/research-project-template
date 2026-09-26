@@ -22,6 +22,9 @@
 #
 # Both entry points are idempotent and safe to call outside SLURM.
 #
+# The failure signatures and measurements behind this file are in
+# docs/historical/clusters/job-caches.md.
+#
 # TODO(template): export the cache variables of the project's own frameworks
 # in job_cache_setup, using one of the prefixes job_cache_cleanup accepts.
 

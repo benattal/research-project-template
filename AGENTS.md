@@ -132,6 +132,24 @@ readings ("step N of M"), not verdicts. Do not write conclusions from partial
 runs into trackers, pages or configuration comments, and do not launch
 follow-up arms from them.
 
+Diagnoses are hypotheses until verified, but propose them. Neither commit
+to one confident story nor retreat to raw numbers without interpretation:
+propose several plausible mechanisms, tie each to the code or the math, rank
+them by how the evidence leans, and name the measurement that would tell
+them apart; then verify before committing. State confidence plainly
+("candidate cause", "consistent with, not yet confirmed") and reserve
+definitive claims for what was checked against the code, the math, or a
+reproduction.
+
+Method-level changes (the objective, the data or random streams, an
+evaluation protocol) need the user's explicit consent and a controlled A/B
+comparison, even when a bug audit proposes them; engineering changes that
+leave numerics unchanged do not. Present audit fixes in approval batches by
+class: correctness fixes that leave healthy runs unchanged, changes to
+dynamics or the objective, configuration and script repairs, and tooling and
+documentation. After landing, list every deliberate behavior change and which
+runs are no longer seed-comparable or must not resume across it.
+
 Report an anomaly found by reading code as a measurement, not as "the real
 issue". When the user names a control, build and launch it before any
 self-devised fix, and do not commit changes that act on the anomaly until the
@@ -176,7 +194,10 @@ Read these before changing algorithms:
   and aesthetics;
 - [environments and setup](docs/environments/index.md) before running code;
 - [experiments](docs/implementation/experiments.md) for run identity, metrics,
-  references and lineage.
+  references and lineage;
+- [historical notes](docs/historical/README.md) for durable lessons from
+  earlier projects (Mitsuba and DrJit, real-time rendering, clusters, unbiased
+  estimation, evaluating generative models, training engineering).
 
 The maintained applications are:
 
@@ -274,7 +295,8 @@ through a command-line override; register a new preset instead.
   do not select one field from another.
 - Do not add string-selected trainer modes, copied outer loops, behavior-mixin
   diamonds, forwarding modules, or passive compatibility aliases.
-- Remove dead branches and stale flags after checking reachability.
+- Remove dead branches and stale flags after checking reachability, the
+  named presets that set them, and the checkpoint schemas that record them.
 - Production modules never import probes, page builders, or experiments.
 - `scripts/` follows the taxonomy in [scripts/README.md](scripts/README.md);
   do not add loose scripts at its root or executable code under `data/`.

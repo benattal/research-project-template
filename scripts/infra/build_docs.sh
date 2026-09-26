@@ -25,8 +25,9 @@ fi
 # Build into a temporary directory, then replace the generated tree in one
 # move. No top-level site/ directory is created.
 cd "$REPO"
-# Recent mkdocs-material releases print a long banner about MkDocs 2.0 on
-# every build; it is informational and hides the build's own warnings.
+# Silence the MkDocs 2.0 migration notice a plugin prints on every build, so
+# the build's own warnings stay visible. (mkdocs-material prints a separate
+# banner of its own that this variable does not affect.)
 export DISABLE_MKDOCS_2_WARNING=true
 BUILD_DIR="$(mktemp -d)"
 trap 'rm -r -- "${BUILD_DIR:?}"' EXIT

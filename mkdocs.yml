@@ -98,5 +98,62 @@ nav:
       - Tracking Data: tracking/data/README.md
   - Historical Notes:
       - Index: historical/README.md
+      - Mitsuba and DrJit:
+          - Index: historical/mitsuba/README.md
+          - Randomness and independence: historical/mitsuba/randomness-and-independence.md
+          - JIT specialization and kernel caches: historical/mitsuba/jit-and-kernel-caches.md
+          - Evaluation, loops and replay: historical/mitsuba/evaluation-and-loops.md
+          - Precision and bitwise parity: historical/mitsuba/precision.md
+          - Memory and graph growth: historical/mitsuba/memory.md
+          - DrJit, PyTorch and tiny-cuda-nn: historical/mitsuba/torch-interop.md
+          - Geometry and BSDF conventions: historical/mitsuba/geometry-conventions.md
+          - Testing and profiling: historical/mitsuba/testing-and-profiling.md
+      - Real-time Rendering:
+          - Index: historical/real-time-rendering/README.md
+          - Frame budget and online training: historical/real-time-rendering/frame-budget-and-training.md
+          - Image quality and flicker: historical/real-time-rendering/image-quality-and-flicker.md
+          - CUDA kernel performance for online cache training: historical/real-time-rendering/cuda-kernel-performance.md
+          - Gating speed changes on exact numerics: historical/real-time-rendering/exactness-gates.md
+          - WebGPU and WGSL: historical/real-time-rendering/webgpu-and-wgsl.md
+          - Web and native parity: historical/real-time-rendering/web-and-native-parity.md
+          - Headless GPU testing of a WebGPU page: historical/real-time-rendering/headless-gpu-testing.md
+          - Recording real-time clips: historical/real-time-rendering/recordings.md
+      - Clusters:
+          - Index: historical/clusters/README.md
+          - Staging a Python environment onto compute nodes: historical/clusters/environment-staging.md
+          - Toolchains and GPU architectures: historical/clusters/toolchains-and-gpu-architectures.md
+          - Compilation caches in jobs: historical/clusters/job-caches.md
+          - Knowing which code a job runs: historical/clusters/code-deployment.md
+          - Long runs as chains of resumed links: historical/clusters/long-runs-and-resumption.md
+          - Login nodes and shared hosts: historical/clusters/login-nodes-and-shared-hosts.md
+          - Output syncing, retention and cleanup: historical/clusters/output-retention-and-cleanup.md
+          - Shell safety in job and cleanup scripts: historical/clusters/shell-safety.md
+      - Unbiased Estimation:
+          - Index: historical/unbiased-estimation/README.md
+          - Independent views and unbiased products: historical/unbiased-estimation/independent-views.md
+          - Sources of bias: historical/unbiased-estimation/sources-of-bias.md
+          - Normalization and self-normalization: historical/unbiased-estimation/normalization-and-self-normalization.md
+          - Noise models: historical/unbiased-estimation/noise-models.md
+          - Bias and variance trade-offs: historical/unbiased-estimation/bias-variance-trade-offs.md
+          - Measuring bias and variance: historical/unbiased-estimation/measuring-bias-and-variance.md
+      - Evaluating Generative Models:
+          - Index: historical/evaluating-generative-models/README.md
+          - Choosing metrics that expose the failure: historical/evaluating-generative-models/choosing-metrics.md
+          - Toy problems as the primary instrument: historical/evaluating-generative-models/toy-problems-as-instruments.md
+          - Sample size, seeds and provenance: historical/evaluating-generative-models/sample-size-and-seeds.md
+          - Image metrics - FID and its companions: historical/evaluating-generative-models/image-metrics.md
+          - Evaluating conditional and posterior samplers: historical/evaluating-generative-models/posterior-evaluation.md
+          - Reproducing baselines and running fair comparisons: historical/evaluating-generative-models/reproducing-baselines.md
+          - Visual inspection layouts that expose failures: historical/evaluating-generative-models/visual-inspection.md
+      - Training Engineering:
+          - Index: historical/training-engineering/README.md
+          - Mixed precision and memory: historical/training-engineering/mixed-precision-and-memory.md
+          - Multi-GPU training with accelerate: historical/training-engineering/multi-gpu.md
+          - Optimizer steps and EMA: historical/training-engineering/optimizer-steps-and-ema.md
+          - Checkpoints and resume: historical/training-engineering/checkpoints-and-resume.md
+          - Data loading: historical/training-engineering/data-loading.md
+          - Profiling and throughput: historical/training-engineering/profiling-and-throughput.md
+          - Codebase audits and configuration hygiene: historical/training-engineering/codebase-audits.md
+          - JAX references and cross-framework parity: historical/training-engineering/jax-and-reference-parity.md
   - Archive: archive/README.md
   - API Reference: api/
