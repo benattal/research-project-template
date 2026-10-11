@@ -112,6 +112,16 @@ instrument. A structural argument is allowed only after the controls agree
 with the implementation to the last digit and the argument predicts the
 remaining gap quantitatively.
 
+A method that should work and does not has a bug until a control shows
+otherwise. The user (2026-10-11): "for methods that should work, but don't —
+look for bugs, rather than structural reasons why they don't. Another
+guideline for this is try not to implement patchwork fixes." Search for the
+error in the implementation, not for a reason the method cannot work. Do not
+make the symptom go away while its cause remains: a different initialization,
+a clamp or floor, a schedule or learning-rate change, or a special case that
+avoids the failing regime is a patchwork fix. Find and fix the cause, or
+report it as open.
+
 Before committing to a mathematical explanation, think the problem through
 visually: picture the objects, the moving parts and the quantity being
 computed, and ask what the answer should look like. The picture predicts the
