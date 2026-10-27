@@ -102,6 +102,35 @@ public contract, state owner, or multiple consumers.
 - Checkpoint schemas stamp semantics, mapping, support, and model state;
   loaders do not guess or silently repair incompatible state.
 
+### Command lines with tyro
+
+Entry points parse configuration with [tyro](https://brentyi.github.io/tyro/)
+over typed dataclass trees, never with hand-written `argparse` parsers.
+`src/apps/example/__main__.py` is the pattern:
+`tyro.extras.overridable_config_cli` over a preset registry, with dotted
+flags (`--training.iterations 50`) overriding one preset's fields. A
+project with variant types uses `tyro.extras.subcommand_type_from_defaults`
+over its preset dict and calls `tyro.cli` on that union once per entry
+point.
+
+Lessons from bidirectional-radiance-caching, which uses this pattern
+throughout:
+
+- **Naming a subcommand resets that subtree to the dataclass defaults,** and
+  a flag binds to the subcommand just before it. Choosing a cache variant by
+  name there once dropped a preset's capacity from 16.19M to 2.25M
+  parameters. Keep union-typed fields rare, and test that each preset
+  resolves to the values it states.
+- `dataclasses.asdict` drops which union member was chosen. Give each
+  variant an explicit `kind` tag so the saved `config.yaml` says what ran.
+- Write a loader that replays a run from its `config.yaml`. Copying YAML
+  values by hand onto a preset drifts.
+- A field added to the wrong dataclass creates no flag, and a launcher that
+  builds job commands can drop overrides. Test that the documented flags
+  parse, and that the launched config equals the one that was checked.
+- On a shared filesystem, a stale import of the config module shows up as
+  "Unrecognized options". Launchers print the config module's hash.
+
 ### Explicit configuration ownership
 
 - One field owns one behavior. A boolean, mode string, objective selector,
