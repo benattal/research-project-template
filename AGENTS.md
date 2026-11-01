@@ -53,6 +53,18 @@ revalidate that the user still wants it; otherwise leave the state unchanged.
 
 ## Research workflow
 
+**A research problem is solved as stated.** The user (2026-11-01):
+"Again, you seem to be changing the method,
+changing the constraints -- doing something that I did not ask for to make
+the task easier. This is a research problem that we are tackling. It is an
+inherently hard task. Our goal is not to change problem constraints to get
+things to work, but to problem solve in order to find a solution to a
+challenging problem." Keep the method and every constraint as the user stated them. When the
+constraints seem to conflict, or the plain approach fails, that conflict is the
+problem to work on. Never recommend, as a way forward, an option that relaxes
+the method or a constraint. A conflict may be remarked on beside the work, and
+a run under an easier version of the problem is a diagnostic, named as one.
+
 When the user requests a speed investigation, the implied contract is
 unchanged numerical behavior: the same fits, estimates and optimization
 trajectories, not merely the same result in expectation. Do not trade sampling
