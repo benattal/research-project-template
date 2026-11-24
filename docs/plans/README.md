@@ -54,8 +54,10 @@ The sections, in this order:
    turns, its runs, the bar that passes it, and a status. No results inline.
 5. **Where it stands.** Short: what is established and what is open, with a
    link to the tracker.
-6. **Reference.** The method as deployed, the keys' definitions, the agent's
-   own choices.
+6. **Reference.** The method as deployed in a few lines, the keys'
+   definitions, the agent's own choices. A longer derivation goes in a
+   concept note (`docs/concepts/`) that the plan links: "You can put more
+   involved derivations in docs/concepts" (the user, 2026-11-24).
 
 The rules that keep it so:
 
@@ -124,7 +126,7 @@ What is established and what is open; the evidence is in the tracker.
 ## Method as deployed
 
 The recipe in a paragraph, with the preset names that implement it, and the
-keys' definitions.
+keys' definitions. The derivation is in the concept note.
 
 ## My choices, open to change
 
